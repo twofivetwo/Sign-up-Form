@@ -1,16 +1,16 @@
-* {
+:root {
   box-sizing: border-box;
-  overflow: hidden;
+  --main-font: "Bebas Neue", sans-serif;
 }
-
 html {
+  background-color: rgb(180, 180, 180);
   display: flex;
   justify-content: center;
 }
 
 body {
+  background-color: rgb(235, 235, 235);
   max-width: 2560px;
-  background-color: rgb(255, 255, 255);
 }
 
 .wrapper {
@@ -19,40 +19,40 @@ body {
   height: 100vh;
 }
 
-.heroContainer {
+.heroContainer,
+.topBanner {
+  background: url(images/swirl_pattern.webp);
   width: 35vw;
-  background: url(images/swirl_pattern.webp) center;
   -webkit-box-shadow: -4px 7px 4px -3px rgba(0, 0, 0, 0.53);
   box-shadow: 1px 0px 8px -3px rgba(0, 0, 0, 0.53);
+  z-index: 1;
 }
 
 .hero {
+  background-color: rgba(238, 238, 238, 0.753);
   display: flex;
   justify-content: flex-end;
   position: sticky;
-  top: 30vh;
-  height: clamp(7vh, 10vw, 25vh);
-  border: 1px solid black;
-  background-color: rgba(161, 161, 161, 0.774);
-  box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.53);
+  top: 25vh;
+  height: clamp(7vh, 10vw, 18vh);
+  border-top: 1px solid rgba(131, 131, 131, 0.5);
+  border-bottom: 1px solid rgba(131, 131, 131, 0.5);
+  /* box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.295);
+  -webkit-box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.295); */
 }
 
-#logo {
-  padding-right: 1rem;
-  width: clamp(50px, 100%, 150px);
-  height: max(50px, 100%);
-}
-
-.logoGrid {
+.hero > .logoContainer {
   display: grid;
-  align-items: center;
   width: clamp(3rem, -0.821rem + 6.1381vw, 7rem);
-  padding-bottom: 10%;
+  padding-top: 1vh;
   margin-right: 1vw;
 }
 
-h1 {
+.hero > #logo {
+  padding-right: 1rem;
+}
+
+.hero > #brandName {
   color: rgb(180, 180, 180);
   font-family: "League Gothic", sans-serif;
   font-size: clamp(3rem, -0.821rem + 6.1381vw, 7rem);
@@ -65,12 +65,185 @@ h1 {
   padding-right: 0.5vw;
 }
 
-@media screen and (max-width: 900px) {
-  .heroContainer {
+main {
+  width: min(65vw);
+}
+
+header > p#page-info {
+  color: rgb(71, 71, 71);
+  font-family: var(--main-font);
+  font-size: clamp(1.3rem, 1.1036rem + 0.8727vw, 2.5rem);
+  font-weight: Bold;
+  max-height: 25vh;
+  margin-bottom: 10px;
+  padding: 7vh 10vw 5vw 7vw;
+}
+
+.formContainer {
+  position: sticky;
+  top: 25vh;
+  background-color: rgb(243, 242, 242);
+  padding: 3vh 0vw 2vh 7vw;
+  box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.295);
+  -webkit-box-shadow: 0px 3px 15px -4px rgba(0, 0, 0, 0.295);
+}
+
+em {
+  color: rgba(0, 0, 0, 0);
+  font-size: 36px;
+  -webkit-text-stroke: 1px rgba(48, 48, 48, 0.95);
+  font-size: clamp(1.3rem, 1.1036rem + 0.8727vw, 2.5rem);
+}
+
+.formContainer > h2 {
+  font-family: var(--main-font);
+  font-size: 2rem;
+  color: rgb(71, 71, 71);
+  padding-bottom: 1.5vh;
+  padding-bottom: 3vh;
+}
+
+.formContainer > h2 > p {
+  font-size: 1rem;
+  color: rgb(105, 105, 105);
+  font-style: italic;
+}
+
+form {
+  display: grid;
+  width: min(55vw);
+  gap: 2.5vh;
+  grid-template-columns: 50% auto;
+  padding-right: 3vw;
+  padding-bottom: 5vh;
+}
+
+label {
+  display: block;
+  font-family: var(--main-font);
+  font-size: 1.2rem;
+  color: rgb(71, 71, 71);
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.35vh;
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(100, 100, 100, 0.726);
+  border-radius: 3px;
+}
+
+.buttonContainer {
+  background-color: rgba(94, 156, 206, 0);
+  padding: 3vh 0vw 0vh 7vw;
+  position: sticky;
+}
+
+button[type="submit"] {
+  color: white;
+  font-family: var(--main-font);
+  font-size: 1.8rem;
+  cursor: pointer;
+  background-color: rgba(62, 158, 94, 0.788);
+  padding: 8px 60px 6px 60px;
+  margin-top: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.295);
+  -webkit-box-shadow: -1px 3px 1px 1px rgba(0, 0, 0, 0.295);
+}
+
+button[type="submit"]:active {
+  background-color: #4ebeff;
+  box-shadow: 0px 2px rgba(114, 114, 114, 0.644);
+  transform: translateY(4px);
+}
+
+.buttonContainer > p {
+  font-family: var(--main-font);
+  font-size: 1.6rem;
+  padding-top: 2.5rem;
+  color: rgb(71, 71, 71);
+}
+
+#loginLink > a:link {
+  color: rgba(62, 158, 94, 0.788);
+}
+
+#loginLink > a:visited {
+  color: rgb(124, 124, 124);
+}
+
+#loginLink > a:hover {
+  color: hotpink;
+}
+
+#loginLink > a:active {
+  color: #4ebeff;
+}
+
+input:focus {
+  border: 2px solid rgb(87, 180, 255);
+}
+
+input:not(:focus):not(:placeholder-shown):invalid {
+  border: 2px solid rgba(255, 57, 57, 0.8);
+}
+
+/* -------------------- MEDIA QUERIES -------------------- */
+@media screen and (min-width: 2560px) {
+  form {
+    width: 40vw;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .hero {
+    top: 25.7vh;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .topBannerContainer {
     display: none;
   }
 }
 
-.formContainer {
-  width: min(65vw);
+@media screen and (max-width: 1160px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .hero {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .heroContainer {
+    display: none;
+  }
+
+  .topBanner {
+    height: 8vh;
+    width: 100vw;
+    background: url(images/swirl_pattern-gradient-landscape.webp) center;
+  }
+
+  main {
+    width: 100vw;
+  }
+
+  form {
+    width: 90vw;
+    grid-template-columns: 45% auto;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  form {
+    grid-template-columns: 1fr;
+  }
 }
