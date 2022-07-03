@@ -12,16 +12,15 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Gothic&family=Tinos:ital,wght@0,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
     <title>Sign-up Form</title>
   </head>
   <body>
-    <div class="wrapperBackground"></div>
     <div class="wrapper">
       <div class="heroContainer">
         <div class="hero">
           <h1 id="brandName">HYPERION</h1>
-          <div class="logoGridContainer">
+          <div class="logoContainer">
             <img
               src="images/planet_logo.svg"
               alt=" simple cartoon style drawing of a planet"
@@ -32,11 +31,11 @@
       </div>
       <main>
         <header class="sign-up-page">
-          <div class="topBanner">
-            <div class="bannerContainer">
+          <div class="topBannerContainer">
+            <div class="topBanner">
               <div class="hero">
                 <h1 id="brandName">HYPERION</h1>
-                <div class="logoGridContainer">
+                <div class="logoContainer">
                   <img
                     src="images/planet_logo.svg"
                     alt=" simple cartoon style drawing of a planet"
@@ -54,67 +53,101 @@
           </p>
         </header>
         <div class="formContainer">
-          <h2>SIGN UP HERE!</h2>
-          <form action="" method="post">
+          <h2>
+            SIGN UP HERE!<br />
+            <p>please complete all fields marked with an *</p>
+          </h2>
+          <form
+            name="signUpForm"
+            action="#"
+            onsubmit="return comparePwd()"
+            method="post"
+          >
             <label for="first_name"
-              >Name
+              >First Name *
               <input
                 type="text"
                 name="first_name"
                 id="first_name"
-                required
                 autocomplete="given-name"
+                pattern="[a-zA-Z]{1,}"
+                placeholder="John"
+                title="Please enter your first name (required)"
+                required
             /></label>
 
             <label for="second_name"
-              >Last Name
+              >Last Name *
               <input
                 type="text"
                 name="second_name"
                 id="second_name"
-                required
                 autocomplete="family-name"
+                placeholder="Doe"
+                pattern="[a-zA-Z]{1,}"
+                title="Please enter your last name (required)"
+                required
             /></label>
 
             <label for="email"
-              >Email
+              >Email *
               <input
                 type="email"
+                inputmode="email"
                 name="email"
                 id="email"
                 placeholder="john@youremail.com"
+                title="please enter a valid email address (required)"
                 required
             /></label>
 
             <label for="phoneNumber"
               >Phone Number
               <input
-                type="number"
+                type="tel"
+                inputmode="tel"
                 name="phoneNumber"
                 id="phoneNumber"
                 autocomplete="mobile"
+                placeholder="555-123-4567"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                title="please enter a valid phone number (not required)"
             /></label>
 
             <label for="password"
-              >Password
+              >Password * (8 characters minimum)
               <input
                 type="password"
                 name="password"
                 id="password"
                 autocomplete="new-password"
+                placeholder=" "
+                minlength="8"
+                required
             /></label>
 
             <label for="confirmPass"
-              >Confirm Password
+              >Confirm Password *
               <input
                 type="password"
-                name="confirmPass"
-                id="confirmPass"
+                name="passwordConfirm"
+                id="passwordConfirm"
                 autocomplete="off"
-            /></label>
+                placeholder=" "
+                onkeyup="checkPassword()"
+                minlength="8"
+                required
+              />
+              <p id="noMatch"></p>
+            </label>
           </form>
         </div>
-        <div class="buttonContainer"></div>
+        <div class="buttonContainer">
+          <button form="signUpForm" type="submit" value="Submit">SUBMIT</button>
+          <p id="loginLink">
+            Already have an account? <a href="http://#">Log In</a>
+          </p>
+        </div>
       </main>
       <footer>
         <a href=""></a>
